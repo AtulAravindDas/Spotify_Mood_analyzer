@@ -12,9 +12,16 @@ uploaded_file = st.sidebar.file_uploader("Upload Spotify CSV", type=["csv"])
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
+
+    df.columns = [c.strip().lower().replace(' ', '_') for c in df.columns]
+
+    available_cols = df.columns.tolist()
+
+    hover_cols = [col for col in ['track_name', 'artist_name'] if col in available_cols]
     
     # Selecting the features
-    X = df[['valence', 'energy']]
+    if 'valence' in df.columns and 'energy' in df.columns:
+        X = df[['valence', 'energy']]
     
     # 2. Internal Optimal K Calculation
     distortions = []
