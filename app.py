@@ -45,7 +45,7 @@ if uploaded_file:
     
     fig = px.scatter(
         df, x='valence', y='energy', color='mood_cluster',
-        hover_data=['track_name', 'artist_name'],
+        hover_data=hover_cols,
         title="Hover over points to see song details",
         template="plotly_dark",
         color_discrete_sequence=px.colors.qualitative.Prism
