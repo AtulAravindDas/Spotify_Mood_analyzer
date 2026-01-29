@@ -64,7 +64,7 @@ if uploaded_file:
         st.table(centers)
         
         st.write("### Raw Data Samples")
-        st.dataframe(df[['track_name', 'artist_name', 'valence', 'energy', 'mood_cluster']])
+        st.dataframe(df[['track_name', 'artists', 'valence', 'energy', 'mood_cluster']])
 
 else:
     st.info("Please upload your Spotify Tracks CSV in the sidebar to begin.")
